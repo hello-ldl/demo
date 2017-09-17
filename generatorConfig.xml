@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry
+		location="D:\工作空间\eclipse\demo\src\main\webapp\WEB-INF\lib\ojdbc14-10.2.0.4.0.jar" />
+	<context id="context1">
+	  	<commentGenerator>
+	    	<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+	    	<property name="suppressAllComments" value="true"/>
+ 	 	</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@60.24.64.111:1521:place" userId="BSBANK" password="bsbank" />
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="cn.com.demo.model" targetProject="src/main/java" />
+		<!-- 生成的映射文件报名和位置 -->
+		<sqlMapGenerator targetPackage="cn.com.demo.mapper" targetProject="src/main/resources" />
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="cn.com.demo.dao" targetProject="src/main/java" type="XMLMAPPER" />
+		<!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
+		<table schema="BSBANK" tableName="USER_INFO" domainObjectName="UserInfo" enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<!-- <table tableName="FILMTYPE" domainObjectName="FiplType" enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<columnOverride column="TYPEID" property="TYPEID" />
+			<columnOverride column="TYPENAME" property="TYPENAME" />
+		</table> -->
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.demo.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.demo.model.UserInfo" >
+    <id column="CUSTNO" property="custno" jdbcType="VARCHAR" />
+    <result column="IDNO" property="idno" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="KEYTYPE" property="keytype" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="VARCHAR" />
+    <result column="BUSIPHONE" property="busiphone" jdbcType="VARCHAR" />
+    <result column="MOBILEPHONE" property="mobilephone" jdbcType="VARCHAR" />
+    <result column="E_MAIL" property="eMail" jdbcType="VARCHAR" />
+    <result column="ADDR" property="addr" jdbcType="VARCHAR" />
+    <result column="RESERVEINFO" property="reserveinfo" jdbcType="VARCHAR" />
+    <result column="FAMILYLNCOME" property="familylncome" jdbcType="VARCHAR" />
+    <result column="HAVECHILD" property="havechild" jdbcType="VARCHAR" />
+    <result column="HAVELOAN" property="haveloan" jdbcType="VARCHAR" />
+    <result column="HAVECAR" property="havecar" jdbcType="VARCHAR" />
+    <result column="MARITAL" property="marital" jdbcType="VARCHAR" />
+    <result column="INDUSTRY" property="industry" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="CONTACTNAME" property="contactname" jdbcType="VARCHAR" />
+    <result column="CONTACTPHONE" property="contactphone" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="ACCUUID" property="accuuid" jdbcType="VARCHAR" />
+    <result column="HASTRADEPASS" property="hastradepass" jdbcType="VARCHAR" />
+    <result column="DEGREE" property="degree" jdbcType="VARCHAR" />
+    <result column="INTERESTS" property="interests" jdbcType="VARCHAR" />
+    <result column="SP_TRANS_ID" property="spTransId" jdbcType="VARCHAR" />
+    <result column="CUST_ID" property="custId" jdbcType="VARCHAR" />
+    <result column="FIRSTLOIN" property="firstloin" jdbcType="DECIMAL" />
+    <result column="HOLDMOBILEPHONE" property="holdmobilephone" jdbcType="VARCHAR" />
+    <result column="HOLDEMAIL" property="holdemail" jdbcType="VARCHAR" />
+    <result column="HOLDPROVINCE" property="holdprovince" jdbcType="VARCHAR" />
+    <result column="IMG" property="img" jdbcType="VARCHAR" />
+    <result column="CONNECTION" property="connection" jdbcType="VARCHAR" />
+    <result column="CHANNELID" property="channelid" jdbcType="VARCHAR" />
+    <result column="TRANS_DATE" property="transDate" jdbcType="VARCHAR" />
+    <result column="REGIST_DATE" property="registDate" jdbcType="VARCHAR" />
+    <result column="REGIST_TIME" property="registTime" jdbcType="VARCHAR" />
+    <result column="USER_STATUS" property="userStatus" jdbcType="VARCHAR" />
+    <result column="DEVICE_FINGERPRINT" property="deviceFingerprint" jdbcType="VARCHAR" />
+    <result column="CUST_IP" property="custIp" jdbcType="VARCHAR" />
+    <result column="CUST_VERSION" property="custVersion" jdbcType="VARCHAR" />
+    <result column="DEVICE_TYPE" property="deviceType" jdbcType="VARCHAR" />
+    <result column="IS_DISTI" property="isDisti" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CUSTNO, IDNO, NAME, KEYTYPE, GENDER, BUSIPHONE, MOBILEPHONE, E_MAIL, ADDR, RESERVEINFO, 
+    FAMILYLNCOME, HAVECHILD, HAVELOAN, HAVECAR, MARITAL, INDUSTRY, POSTCODE, CONTACTNAME, 
+    CONTACTPHONE, STATE, ACCUUID, HASTRADEPASS, DEGREE, INTERESTS, SP_TRANS_ID, CUST_ID, 
+    FIRSTLOIN, HOLDMOBILEPHONE, HOLDEMAIL, HOLDPROVINCE, IMG, CONNECTION, CHANNELID, 
+    TRANS_DATE, REGIST_DATE, REGIST_TIME, USER_STATUS, DEVICE_FINGERPRINT, CUST_IP, CUST_VERSION, 
+    DEVICE_TYPE, IS_DISTI
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from BSBANK.USER_INFO
+    where CUSTNO = #{custno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BSBANK.USER_INFO
+    where CUSTNO = #{custno,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.com.demo.model.UserInfo" >
+    insert into BSBANK.USER_INFO (CUSTNO, IDNO, NAME, 
+      KEYTYPE, GENDER, BUSIPHONE, 
+      MOBILEPHONE, E_MAIL, ADDR, 
+      RESERVEINFO, FAMILYLNCOME, HAVECHILD, 
+      HAVELOAN, HAVECAR, MARITAL, 
+      INDUSTRY, POSTCODE, CONTACTNAME, 
+      CONTACTPHONE, STATE, ACCUUID, 
+      HASTRADEPASS, DEGREE, INTERESTS, 
+      SP_TRANS_ID, CUST_ID, FIRSTLOIN, 
+      HOLDMOBILEPHONE, HOLDEMAIL, HOLDPROVINCE, 
+      IMG, CONNECTION, CHANNELID, 
+      TRANS_DATE, REGIST_DATE, REGIST_TIME, 
+      USER_STATUS, DEVICE_FINGERPRINT, CUST_IP, 
+      CUST_VERSION, DEVICE_TYPE, IS_DISTI
+      )
+    values (#{custno,jdbcType=VARCHAR}, #{idno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{keytype,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{busiphone,jdbcType=VARCHAR}, 
+      #{mobilephone,jdbcType=VARCHAR}, #{eMail,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{reserveinfo,jdbcType=VARCHAR}, #{familylncome,jdbcType=VARCHAR}, #{havechild,jdbcType=VARCHAR}, 
+      #{haveloan,jdbcType=VARCHAR}, #{havecar,jdbcType=VARCHAR}, #{marital,jdbcType=VARCHAR}, 
+      #{industry,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{contactname,jdbcType=VARCHAR}, 
+      #{contactphone,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{accuuid,jdbcType=VARCHAR}, 
+      #{hastradepass,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{interests,jdbcType=VARCHAR}, 
+      #{spTransId,jdbcType=VARCHAR}, #{custId,jdbcType=VARCHAR}, #{firstloin,jdbcType=DECIMAL}, 
+      #{holdmobilephone,jdbcType=VARCHAR}, #{holdemail,jdbcType=VARCHAR}, #{holdprovince,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{connection,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{transDate,jdbcType=VARCHAR}, #{registDate,jdbcType=VARCHAR}, #{registTime,jdbcType=VARCHAR}, 
+      #{userStatus,jdbcType=VARCHAR}, #{deviceFingerprint,jdbcType=VARCHAR}, #{custIp,jdbcType=VARCHAR}, 
+      #{custVersion,jdbcType=VARCHAR}, #{deviceType,jdbcType=VARCHAR}, #{isDisti,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.demo.model.UserInfo" >
+    insert into BSBANK.USER_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="custno != null" >
+        CUSTNO,
+      </if>
+      <if test="idno != null" >
+        IDNO,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="keytype != null" >
+        KEYTYPE,
+      </if>
+      <if test="gender != null" >
+        GENDER,
+      </if>
+      <if test="busiphone != null" >
+        BUSIPHONE,
+      </if>
+      <if test="mobilephone != null" >
+        MOBILEPHONE,
+      </if>
+      <if test="eMail != null" >
+        E_MAIL,
+      </if>
+      <if test="addr != null" >
+        ADDR,
+      </if>
+      <if test="reserveinfo != null" >
+        RESERVEINFO,
+      </if>
+      <if test="familylncome != null" >
+        FAMILYLNCOME,
+      </if>
+      <if test="havechild != null" >
+        HAVECHILD,
+      </if>
+      <if test="haveloan != null" >
+        HAVELOAN,
+      </if>
+      <if test="havecar != null" >
+        HAVECAR,
+      </if>
+      <if test="marital != null" >
+        MARITAL,
+      </if>
+      <if test="industry != null" >
+        INDUSTRY,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME,
+      </if>
+      <if test="contactphone != null" >
+        CONTACTPHONE,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="accuuid != null" >
+        ACCUUID,
+      </if>
+      <if test="hastradepass != null" >
+        HASTRADEPASS,
+      </if>
+      <if test="degree != null" >
+        DEGREE,
+      </if>
+      <if test="interests != null" >
+        INTERESTS,
+      </if>
+      <if test="spTransId != null" >
+        SP_TRANS_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="firstloin != null" >
+        FIRSTLOIN,
+      </if>
+      <if test="holdmobilephone != null" >
+        HOLDMOBILEPHONE,
+      </if>
+      <if test="holdemail != null" >
+        HOLDEMAIL,
+      </if>
+      <if test="holdprovince != null" >
+        HOLDPROVINCE,
+      </if>
+      <if test="img != null" >
+        IMG,
+      </if>
+      <if test="connection != null" >
+        CONNECTION,
+      </if>
+      <if test="channelid != null" >
+        CHANNELID,
+      </if>
+      <if test="transDate != null" >
+        TRANS_DATE,
+      </if>
+      <if test="registDate != null" >
+        REGIST_DATE,
+      </if>
+      <if test="registTime != null" >
+        REGIST_TIME,
+      </if>
+      <if test="userStatus != null" >
+        USER_STATUS,
+      </if>
+      <if test="deviceFingerprint != null" >
+        DEVICE_FINGERPRINT,
+      </if>
+      <if test="custIp != null" >
+        CUST_IP,
+      </if>
+      <if test="custVersion != null" >
+        CUST_VERSION,
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE,
+      </if>
+      <if test="isDisti != null" >
+        IS_DISTI,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="custno != null" >
+        #{custno,jdbcType=VARCHAR},
+      </if>
+      <if test="idno != null" >
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="keytype != null" >
+        #{keytype,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="busiphone != null" >
+        #{busiphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveinfo != null" >
+        #{reserveinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="familylncome != null" >
+        #{familylncome,jdbcType=VARCHAR},
+      </if>
+      <if test="havechild != null" >
+        #{havechild,jdbcType=VARCHAR},
+      </if>
+      <if test="haveloan != null" >
+        #{haveloan,jdbcType=VARCHAR},
+      </if>
+      <if test="havecar != null" >
+        #{havecar,jdbcType=VARCHAR},
+      </if>
+      <if test="marital != null" >
+        #{marital,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null" >
+        #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="accuuid != null" >
+        #{accuuid,jdbcType=VARCHAR},
+      </if>
+      <if test="hastradepass != null" >
+        #{hastradepass,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="interests != null" >
+        #{interests,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null" >
+        #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstloin != null" >
+        #{firstloin,jdbcType=DECIMAL},
+      </if>
+      <if test="holdmobilephone != null" >
+        #{holdmobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="holdemail != null" >
+        #{holdemail,jdbcType=VARCHAR},
+      </if>
+      <if test="holdprovince != null" >
+        #{holdprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="connection != null" >
+        #{connection,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null" >
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null" >
+        #{transDate,jdbcType=VARCHAR},
+      </if>
+      <if test="registDate != null" >
+        #{registDate,jdbcType=VARCHAR},
+      </if>
+      <if test="registTime != null" >
+        #{registTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceFingerprint != null" >
+        #{deviceFingerprint,jdbcType=VARCHAR},
+      </if>
+      <if test="custIp != null" >
+        #{custIp,jdbcType=VARCHAR},
+      </if>
+      <if test="custVersion != null" >
+        #{custVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        #{deviceType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisti != null" >
+        #{isDisti,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.demo.model.UserInfo" >
+    update BSBANK.USER_INFO
+    <set >
+      <if test="idno != null" >
+        IDNO = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="keytype != null" >
+        KEYTYPE = #{keytype,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        GENDER = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="busiphone != null" >
+        BUSIPHONE = #{busiphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilephone != null" >
+        MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="eMail != null" >
+        E_MAIL = #{eMail,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        ADDR = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="reserveinfo != null" >
+        RESERVEINFO = #{reserveinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="familylncome != null" >
+        FAMILYLNCOME = #{familylncome,jdbcType=VARCHAR},
+      </if>
+      <if test="havechild != null" >
+        HAVECHILD = #{havechild,jdbcType=VARCHAR},
+      </if>
+      <if test="haveloan != null" >
+        HAVELOAN = #{haveloan,jdbcType=VARCHAR},
+      </if>
+      <if test="havecar != null" >
+        HAVECAR = #{havecar,jdbcType=VARCHAR},
+      </if>
+      <if test="marital != null" >
+        MARITAL = #{marital,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        INDUSTRY = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="contactname != null" >
+        CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactphone != null" >
+        CONTACTPHONE = #{contactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="accuuid != null" >
+        ACCUUID = #{accuuid,jdbcType=VARCHAR},
+      </if>
+      <if test="hastradepass != null" >
+        HASTRADEPASS = #{hastradepass,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        DEGREE = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="interests != null" >
+        INTERESTS = #{interests,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null" >
+        SP_TRANS_ID = #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstloin != null" >
+        FIRSTLOIN = #{firstloin,jdbcType=DECIMAL},
+      </if>
+      <if test="holdmobilephone != null" >
+        HOLDMOBILEPHONE = #{holdmobilephone,jdbcType=VARCHAR},
+      </if>
+      <if test="holdemail != null" >
+        HOLDEMAIL = #{holdemail,jdbcType=VARCHAR},
+      </if>
+      <if test="holdprovince != null" >
+        HOLDPROVINCE = #{holdprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        IMG = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="connection != null" >
+        CONNECTION = #{connection,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null" >
+        CHANNELID = #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="transDate != null" >
+        TRANS_DATE = #{transDate,jdbcType=VARCHAR},
+      </if>
+      <if test="registDate != null" >
+        REGIST_DATE = #{registDate,jdbcType=VARCHAR},
+      </if>
+      <if test="registTime != null" >
+        REGIST_TIME = #{registTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null" >
+        USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceFingerprint != null" >
+        DEVICE_FINGERPRINT = #{deviceFingerprint,jdbcType=VARCHAR},
+      </if>
+      <if test="custIp != null" >
+        CUST_IP = #{custIp,jdbcType=VARCHAR},
+      </if>
+      <if test="custVersion != null" >
+        CUST_VERSION = #{custVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceType != null" >
+        DEVICE_TYPE = #{deviceType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisti != null" >
+        IS_DISTI = #{isDisti,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CUSTNO = #{custno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.demo.model.UserInfo" >
+    update BSBANK.USER_INFO
+    set IDNO = #{idno,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      KEYTYPE = #{keytype,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      BUSIPHONE = #{busiphone,jdbcType=VARCHAR},
+      MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR},
+      E_MAIL = #{eMail,jdbcType=VARCHAR},
+      ADDR = #{addr,jdbcType=VARCHAR},
+      RESERVEINFO = #{reserveinfo,jdbcType=VARCHAR},
+      FAMILYLNCOME = #{familylncome,jdbcType=VARCHAR},
+      HAVECHILD = #{havechild,jdbcType=VARCHAR},
+      HAVELOAN = #{haveloan,jdbcType=VARCHAR},
+      HAVECAR = #{havecar,jdbcType=VARCHAR},
+      MARITAL = #{marital,jdbcType=VARCHAR},
+      INDUSTRY = #{industry,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      CONTACTPHONE = #{contactphone,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      ACCUUID = #{accuuid,jdbcType=VARCHAR},
+      HASTRADEPASS = #{hastradepass,jdbcType=VARCHAR},
+      DEGREE = #{degree,jdbcType=VARCHAR},
+      INTERESTS = #{interests,jdbcType=VARCHAR},
+      SP_TRANS_ID = #{spTransId,jdbcType=VARCHAR},
+      CUST_ID = #{custId,jdbcType=VARCHAR},
+      FIRSTLOIN = #{firstloin,jdbcType=DECIMAL},
+      HOLDMOBILEPHONE = #{holdmobilephone,jdbcType=VARCHAR},
+      HOLDEMAIL = #{holdemail,jdbcType=VARCHAR},
+      HOLDPROVINCE = #{holdprovince,jdbcType=VARCHAR},
+      IMG = #{img,jdbcType=VARCHAR},
+      CONNECTION = #{connection,jdbcType=VARCHAR},
+      CHANNELID = #{channelid,jdbcType=VARCHAR},
+      TRANS_DATE = #{transDate,jdbcType=VARCHAR},
+      REGIST_DATE = #{registDate,jdbcType=VARCHAR},
+      REGIST_TIME = #{registTime,jdbcType=VARCHAR},
+      USER_STATUS = #{userStatus,jdbcType=VARCHAR},
+      DEVICE_FINGERPRINT = #{deviceFingerprint,jdbcType=VARCHAR},
+      CUST_IP = #{custIp,jdbcType=VARCHAR},
+      CUST_VERSION = #{custVersion,jdbcType=VARCHAR},
+      DEVICE_TYPE = #{deviceType,jdbcType=VARCHAR},
+      IS_DISTI = #{isDisti,jdbcType=VARCHAR}
+    where CUSTNO = #{custno,jdbcType=VARCHAR}
+  </update>
+</mapper>

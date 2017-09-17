@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jee
+		http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/util
+	   	http://www.springframework.org/schema/util/spring-util-4.1.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/tx  
+	   http://www.springframework.org/schema/tx/spring-tx-4.1.xsd"
+	default-lazy-init="true">
+
+	<!-- 加载配置属性文件 -->
+	<!-- <context:property-placeholder ignore-unresolvable="true" location="classpath*:/config/*.properties" /> -->
+	<!-- 系统属性 -->
+	
+	<context:property-placeholder location="classpath*:/config/*.properties" ignore-unresolvable="true"/>
+
+	
+	<!-- 属性文件配置 -->
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="properties" ref="aresProperties"/>
+	</bean> -->
+
+	<!--添加component扫描，使package下面的注解生效 -->
+    <context:component-scan base-package="cn.com.demo.controller"/>
+    
+    
+    <import resource="mybatis/spring-mybatis.xml" />
+    
+	<!-- 下面使用aop切面的方式来实现 -->  
+	<tx:advice id="TestAdvice" transaction-manager="transactionManager">  
+		<!--配置事务传播性，隔离级别以及超时回滚等问题 -->  
+		<tx:attributes>  
+			<tx:method name="save*" propagation="REQUIRED" />  
+			<tx:method name="del*" propagation="REQUIRED" />  
+			<tx:method name="update*" propagation="REQUIRED" />  
+			<tx:method name="add*" propagation="REQUIRED" />  
+			<tx:method name="*"/>  
+		</tx:attributes>  
+	</tx:advice>  
+	<aop:config>  
+		<!--配置事务切点 -->  
+		<aop:pointcut id="services" expression="execution(* cn.com.demo.service.*.*(..)) or execution(* cn.com.demo.dao.*.*(..))" />  
+		<aop:advisor pointcut-ref="services" advice-ref="TestAdvice" />  
+	</aop:config>  
+	
+	<!-- 引用redis配置 -->
+	<!-- <import resource="redis/redis.xml" /> -->
+	<!-- 引用dubbo配置 -->
+	<!-- <import resource="dubbo/dubbo.xml" /> -->
+	<!-- 引用activeMq -->
+	<!-- <import resource="activemq/activemq.xml" /> -->
+</beans>
